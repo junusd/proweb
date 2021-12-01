@@ -52,7 +52,7 @@ Features:
 	"report/product_product.xml",
 	"wizard/kartu_stok_report.xml"
 	],
-	'images': ['static/description/images/main_1.png', 'static/description/images/main_2.png', 'static/description/images/main_screenshot.png'],
+	'images': ['static/description/images/main_screenshot.png', 'static/description/images/main_1.png', 'static/description/images/main_2.png', 'static/description/images/main_3.png'],
 	"application": True,
 	"installable": True,
 	"auto_install": True,
