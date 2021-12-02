@@ -51,7 +51,7 @@
                                         <t t-if="stock_move.state == 'done'">
                                             <t t-if="stock_move.location_id.id == location_id or stock_move.location_dest_id.id == location_id">
                                                 <t t-set="smdate" t-value="stock_move.date"/>
-                                                <t t-set="d_delta" t-value="datetime.timedelta(days=60)"/>
+                                                <t t-set="d_delta" t-value="datetime.timedelta(days=previous_number_days)"/>
                                                 <t t-set="initial_date" t-value="datetime.datetime.now() - d_delta"/>
                                                 <t t-if="smdate.strftime('%Y-%m-%d') &gt; initial_date.strftime('%Y-%m-%d')">
                                                     <t t-if="stock_show_initial == 0">

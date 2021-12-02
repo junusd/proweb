@@ -8,6 +8,7 @@
             <form string="Print Kartu Stok">
                 <group class="oe_title">
                     <field name="location_id" domain="[('name','=','Stock'),('active','=', True)]" options="{'no_quick_create':True,'no_create_edit':True,'no_open': True,}"/>
+                    <field name="previous_number_days"/>
                 </group>
                 <footer>
                     <button name="action_kartu_stok_wizard" string="Print Report" type="object" class="btn-primary"/>

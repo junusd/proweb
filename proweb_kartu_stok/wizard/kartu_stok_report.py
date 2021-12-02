@@ -20,7 +20,7 @@
 #############################################################################
 
 from odoo import api, fields, models
-
+from odoo.exceptions import ValidationError
 
 class KartuStokReport(models.AbstractModel):
     _name = 'report.proweb_kartu_stok.print_kartu_stok_proweb'
@@ -38,6 +38,7 @@ class KartuStokReport(models.AbstractModel):
                     'model': 'product.product',
                     'location_id': data['location_id'],
                     'location_name': location_name,
+                    'previous_number_days': data['previous_number_days'],
                     'docs': docs,
                 }
 
@@ -46,7 +47,15 @@ class KartuStokWizard(models.TransientModel):
     _name = 'kartu.stok.wizard'
     _description = "Kartu Stok Wizard"
     
+    @api.constrains('previous_number_days')
+    def _check_previous_number_days(self):
+        for rec in self:
+            if rec['previous_number_days'] <= 0:
+                raise ValidationError('Number of days must more than 0')
+
+    
     location_id = fields.Many2one('stock.location', string="Location", default=8, required=True)
+    previous_number_days = fields.Integer(string="Starting from the previous number of days", default=60, required=True)
     
     def action_kartu_stok_wizard(self):
         active_ids_tmp = self.env.context.get('active_ids')
@@ -61,6 +70,7 @@ class KartuStokWizard(models.TransientModel):
         if self.read()[0]['location_id']:
             data = { 
                 'location_id': self.read()[0]['location_id'][0],
+                'previous_number_days': self.read()[0]['previous_number_days'],
                 'ids': active_ids,
             }
         return self.env.ref('proweb_kartu_stok.action_print_kartu_stok_proweb').report_action(products, data=data)
