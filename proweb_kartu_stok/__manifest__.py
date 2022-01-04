@@ -24,18 +24,22 @@
 	"version": "1.0", 
 	"depends": [
 		"base",
-		"sale"
+		"stock",
 	], 
 	"author": "PT. Proweb Indonesia",
 	"company": "PT. Proweb Indonesia",
 	"maintainer": "PT. Proweb Indonesia",
 	"website": "https://www.proweb.co.id",
 	"category": "Warehouse",
-	'summary': """Print Kartu Stok (Stock Card) of Products/Product Variants
+	'summary': """Print Kartu Stok (Stock Card) PDF/XLSX Report of Products/Product Variants
 with Lots/Serial Number and Expired Date.""",
 	"description": """
 Features:
-* Print Kartu Stok (Stock Card) of Product / Product Variant on PDF Format File.
+* Print Kartu Stok (Stock Card) of some Product / Product Variants on spesific Warehouse location
+* Show Specific Date Range or Last Day number
+* Output Report in PDF or Excel (XLSX) file format
+* Display Lots/Serial Number and Expired Date
+
   This Report has some columns:
     - Date 
     - In
@@ -46,15 +50,15 @@ Features:
     - Distributor (Seller)
     - Buyer
 """,
-    'depends': ['stock'],
 	"data": [
 	'security/ir.model.access.csv',
 	"report/product_product.xml",
 	"wizard/kartu_stok_report.xml"
 	],
-	'images': ['static/description/images/main_screenshot.png', 'static/description/images/main_1.png', 'static/description/images/main_2.png', 'static/description/images/main_3.png'],
+	'images': ['static/description/images/main_report.gif'],
 	"application": True,
 	"installable": True,
-	"auto_install": True,
+	"auto_install": False,
+	"license": "AGPL-3",
 }
 

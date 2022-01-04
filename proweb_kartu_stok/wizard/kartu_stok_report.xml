@@ -7,11 +7,24 @@
         <field name="arch" type="xml">
             <form string="Print Kartu Stok">
                 <group class="oe_title">
-                    <field name="location_id" domain="[('name','=','Stock'),('active','=', True)]" options="{'no_quick_create':True,'no_create_edit':True,'no_open': True,}"/>
-                    <field name="previous_number_days"/>
+                    <field name="location_id" domain="[('name','=','Stock'),('active','=', True),('usage','=','internal')]" options="{'no_quick_create':True,'no_create_edit':True,'no_open': True,}"/>
+                    <br/>
+                    <field name="day_date" widget="radio"/>
+                    <div>
+                    </div>
+                    <div>
+                        <group id="previous_number_days_settings" attrs="{'invisible': [('day_date', '!=', 'day')]}">
+                            <field name="previous_number_days"/>
+                        </group>
+                        <group id="date_from date_to_settings" attrs="{'invisible': [('day_date', '!=', 'date')]}">
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                        </group>
+                    </div>
                 </group>
                 <footer>
-                    <button name="action_kartu_stok_wizard" string="Print Report" type="object" class="btn-primary"/>
+                    <button name="action_kartu_stok_pdf_wizard" string="Print PDF" type="object" class="btn-primary"/>
+                    <button name="action_kartu_stok_excel_wizard" string="Print Excel" type="object" class="btn-primary"/>
                     <button string="Cancel" class="btn-secondary" special="cancel"/>
                 </footer>
             </form>
