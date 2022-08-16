@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="proweb_bank_bca_wizard_view" model="ir.ui.view">
+        <field name="name">proweb.bank.bca.wizard.view</field>
+        <field name="model">proweb.bank.bca.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Import BCA">
+                <group class="oe_title">
+                    <div colspan="2">
+                        <ul> 
+                            <li> Login to your KlikBCA Account</li>
+                            <li> Then go to menu: <strong>Informasi Rekening</strong> > <strong>Mutasi Rekening</strong></li>
+                            <li> Click: <strong>Download Mutasi Rekening</strong></li>
+                        </ul>
+                        <hr/>
+                        <field name="file_csv" filename="document_name"/>
+                    </div>
+                </group>
+                <footer>
+                    <button name="action_file_csv" string="Import CSV File" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+#############################################################################
+#
+#    PT. PROWEB INDONESIA.
+#
+#    Copyright (C) 2022-TODAY PROWEB INDONESIA(<https://www.proweb.co.id>)
+#    Author: Junus J Djunawidjaja
+#
+#    You can modify it under the terms of the GNU LESSER
+#    GENERAL PUBLIC LICENSE (LGPL v3), Version 3.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU LESSER GENERAL PUBLIC LICENSE (LGPL v3) for more details.
+#
+#    You should have received a copy of the GNU LESSER GENERAL PUBLIC LICENSE
+#    (LGPL v3) along with this program.
+#    If not, see <http://www.gnu.org/licenses/>.
+#
+############################################################################# 
+-->
+
+<odoo>
+    <record model="ir.ui.view" id="online_bank_statement_provider_form">
+        <field name="name">online.bank.statement.provider.form</field>
+        <field name="model">online.bank.statement.provider</field>
+        <field name="arch" type="xml">
+            <form string="Online Bank Statement Provider">
+                <sheet>
+                    <widget
+                        name="web_ribbon"
+                        title="Archived"
+                        bg_color="bg-danger"
+                        attrs="{'invisible': [('active', '=', True)]}"
+                    />
+                    <group name="main" col="2">
+                        <group name="params">
+                            <field name="journal_id" />
+                            <field name="currency_id" />
+                            <field name="account_number" />
+                            <field
+                                name="company_id"
+                                groups="base.group_multi_company"
+                            />
+                            <field
+                                name="service"
+                                widget="dynamic_dropdown"
+                                values="values_service"
+                            />
+                            <field name="active" invisible="1" />
+                        </group>
+                        <group name="configuration" string="Configuration">
+                            <field name="tz" />
+                            <field name="allow_empty_statements" />
+                        </group>
+                        <group name="klikbca" attrs="{'invisible':[('service','!=','klikbca')]}">
+                            <field name="username" string="USER ID" />
+                            <field name="password" string="Internet Banking PIN" password="True" />                            
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

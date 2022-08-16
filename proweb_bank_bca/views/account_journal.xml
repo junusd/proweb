@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+#############################################################################
+#
+#    PT. PROWEB INDONESIA.
+#
+#    Copyright (C) 2022-TODAY PROWEB INDONESIA(<https://www.proweb.co.id>)
+#    Author: Junus J Djunawidjaja
+#
+#    You can modify it under the terms of the GNU LESSER
+#    GENERAL PUBLIC LICENSE (LGPL v3), Version 3.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU LESSER GENERAL PUBLIC LICENSE (LGPL v3) for more details.
+#
+#    You should have received a copy of the GNU LESSER GENERAL PUBLIC LICENSE
+#    (LGPL v3) along with this program.
+#    If not, see <http://www.gnu.org/licenses/>.
+#
+#############################################################################
+-->
+<odoo>
+    <record id = "online_bank_statement_provider_pull_action" model = "ir.actions.server" > 
+        <field name = "name" > Online Bank Statement Provider Pull </field > 
+        <field name = "model_id" ref = "model_online_bank_statement_provider" /> 
+        <field name = "state">code</field> 
+        <field name = "code">action = model.action_pull()</field > 
+    </record >
+
+    <!-- <record id = "import_bank_statement_provider_action" model = "ir.actions.server" > 
+        <field name = "name" > Import File CSV Bank Statement </field > 
+        <field name = "model_id" ref = "model_proweb_bank_bca_wizard" /> 
+        <field name = "state">code</field> 
+        <field name = "code">action = model.action_file_csv()</field > 
+    </record > -->
+
+    <record id = "import_bank_statement_provider_action" model = "ir.actions.act_window">
+        <field name="type">ir.actions.act_window</field>
+        <field name = "name" > Import File CSV Bank Statement </field > 
+        <field name="res_model">proweb.bank.bca.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="proweb_bank_bca_wizard_view"/>
+        <field name="target">new</field>
+        <!-- <field name="binding_model_id" ref="product.model_product_product"/> -->
+        <field name="binding_type">action</field>
+    </record>
+
+
+    <record model="ir.ui.view" id="view_account_journal_form">
+        <field name="name">account.journal.form</field>
+        <field name="model">account.journal</field>
+        <field name="inherit_id" ref="account.view_account_journal_form" />
+        <field name="arch" type="xml">
+            <page name="bank_account" position="inside">
+                <group
+                    name="online_bank_statements"
+                    string="Online Bank Statements"
+                    groups="account.group_account_user"
+                    attrs="{'invisible': [('bank_statements_source', '!=', 'online')]}"
+                >
+                    <label
+                        for="online_bank_statement_provider"
+                        string="Provider"
+                        attrs="{'required': [('bank_statements_source', '=', 'online')]}"
+                        class="oe_edit_only"
+                        groups="account.group_account_user"
+                    />
+                    <field
+                        name="online_bank_statement_provider"
+                        nolabel="1"
+                        attrs="{'required': [('bank_statements_source', '=', 'online')]}"
+                        class="oe_edit_only"
+                        groups="account.group_account_user"
+                        widget="dynamic_dropdown"
+                        values="values_online_bank_statement_provider"
+                    />
+                    <label
+                        for="online_bank_statement_provider_id"
+                        string="Provider"
+                        attrs="{'invisible': [('online_bank_statement_provider_id', '=', False)]}"
+                        class="oe_read_only"
+                    />
+                    <field
+                        name="online_bank_statement_provider_id"
+                        nolabel="1"
+                        attrs="{'invisible': [('online_bank_statement_provider_id', '=', False)]}"
+                        class="oe_read_only"
+                    />
+                </group>
+            </page>
+            <xpath expr="/form/sheet" position="before">
+                <header>
+                    <button
+                        type="action"
+                        name="%(online_bank_statement_provider_pull_action)d"
+                        attrs="{'invisible': [('online_bank_statement_provider', '=', False)]}"
+                        string="Pull Online Bank Statement"
+                    />
+                    <button
+                        type="action"
+                        name="%(import_bank_statement_provider_action)d"
+                        attrs="{'invisible': [('online_bank_statement_provider', '=', False)]}"
+                        string="Import Bank Statement"
+                    />
+                    <button
+                        type="action"
+                        name="%(action_proweb_bank_bca1)d"
+                        attrs="{'invisible': [('online_bank_statement_provider', '=', False)]}"
+                        string="Show Raw Statements from Bank BCA"
+                    />                    
+                </header>
+            </xpath>
+        </field>
+    </record>
+</odoo>

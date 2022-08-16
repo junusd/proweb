@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<!-- 
+#############################################################################
+#
+#    PT. PROWEB INDONESIA.
+#
+#    Copyright (C) 2022-TODAY PROWEB INDONESIA(<https://www.proweb.co.id>)
+#    Author: Junus J Djunawidjaja
+#
+#    You can modify it under the terms of the GNU LESSER
+#    GENERAL PUBLIC LICENSE (LGPL v3), Version 3.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU LESSER GENERAL PUBLIC LICENSE (LGPL v3) for more details.
+#
+#    You should have received a copy of the GNU LESSER GENERAL PUBLIC LICENSE
+#    (LGPL v3) along with this program.
+#    If not, see <http://www.gnu.org/licenses/>.
+#
+############################################################################# 
+-->
+
+<odoo>
+	<data>
+		
+		<!-- proweb_bank_bca Categories Search View -->
+		<record model="ir.ui.view" id="view_proweb_bank_bca_search">
+			<field name="name">proweb_bank_bca.search</field>
+			<field name="model">proweb_bank_bca</field>
+			<field name="arch" type="xml">
+				<search string="proweb_bank_bca form">
+					<field name="id" />
+					<field name="bank" />
+					<field name="date" />
+					<field name="ttype" />
+					<field name="description" />
+					<field name="ent" />
+					<field name="bankcode" />
+					<field name="mutation" />
+					<field name="amount" />
+					<field name="note" />					
+				</search>
+			</field>
+		</record>
+
+		<!-- proweb_bank_bca Category Form View -->
+		<record model="ir.ui.view" id="view_proweb_bank_bca_form">
+			<field name="name">proweb_bank_bca.form</field>
+			<field name="model">proweb_bank_bca</field>
+			<field name="arch" type="xml">
+				<form string="proweb_bank_bca form" delete="false" create="false">
+					<sheet>
+						<group>
+					<field name="id" readonly="1"/>
+					<field name="bank" readonly="1"/>
+					<field name="date" readonly="1"/>
+					<field name="ttype" readonly="1"/>
+					<field name="description" readonly="1"/>
+					<field name="description_raw" readonly="1"/>
+					<field name="ent" readonly="1"/>
+					<field name="bankcode" readonly="1"/>
+					<field name="mutation" readonly="1"/>
+					<field name="amount" readonly="1"/>
+					<field name="note" />					
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- proweb_bank_bca Category Tree View -->
+		<record model="ir.ui.view" id="view_proweb_bank_bca_tree">
+			<field name="name">proweb_bank_bca.tree</field>
+			<field name="model">proweb_bank_bca</field>
+			<field name="field_parent" />
+			<field name="arch" type="xml">
+				<tree string="Bank Account" delete="false" create="false">
+					<field name="id" />
+					<field name="bank" />
+					<field name="date" />
+					<field name="ttype" />
+					<field name="description" />
+					<field name="ent" />
+					<field name="bankcode" />
+					<field name="mutation" />
+					<field name="amount" />
+					<field name="note" />					
+				</tree>
+			</field>
+		</record>
+
+		<!-- proweb_bank_bca Category Action -->
+		<record model="ir.actions.act_window" id="action_proweb_bank_bca1">
+			<field name="name">Bank Account</field>
+			<field name="res_model">proweb_bank_bca</field>
+			<field name="view_mode">tree,form</field>
+			<field name="search_view_id" ref="view_proweb_bank_bca_search" />
+		</record>
+
+	</data>
+</odoo>

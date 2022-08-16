@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!-- 
+#############################################################################
+#
+#    PT. PROWEB INDONESIA.
+#
+#    Copyright (C) 2022-TODAY PROWEB INDONESIA(<https://www.proweb.co.id>)
+#    Author: Junus J Djunawidjaja
+#
+#    You can modify it under the terms of the GNU LESSER
+#    GENERAL PUBLIC LICENSE (LGPL v3), Version 3.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU LESSER GENERAL PUBLIC LICENSE (LGPL v3) for more details.
+#
+#    You should have received a copy of the GNU LESSER GENERAL PUBLIC LICENSE
+#    (LGPL v3) along with this program.
+#    If not, see <http://www.gnu.org/licenses/>.
+#
+############################################################################# 
+-->
+
+<odoo>
+    <data>
+
+        <record model="res.groups" id="group_proweb_bank_bca_user">
+            <field name="name">Proweb Bank BCA User</field>
+        </record>
+
+        <record model="res.groups" id="group_proweb_bank_bca_manager">
+            <field name="name">Proweb Bank BCA Manager</field>
+        </record>
+
+        <record model="ir.rule" id="group_proweb_bank_bca_user_rule">
+            <field name="name">Proweb Bank BCA / User</field>
+            <field name="model_id" search="[('model','=','proweb_bank_bca')]" model="ir.model"/>
+            <field name="global" eval="False"/>
+            <field name="domain_force">[('fview', '=', 'op')]</field>
+            <field name="groups" eval="[(4, ref('proweb_bank_bca.group_proweb_bank_bca_user'))]"/>
+        </record>
+
+        <record model="ir.rule" id="group_proweb_bank_bca_manager_rule">
+            <field name="name">Proweb Bank BCA / Manager</field>
+            <field name="model_id" search="[('model','=','proweb_bank_bca')]" model="ir.model"/>
+            <field name="global" eval="False"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('proweb_bank_bca.group_proweb_bank_bca_manager'))]"/>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,253 @@
+<!-- HEAD -->
+<h1>Proweb Bank BCA Account Statements Import</h1>
+
+<p>
+  This module can be used for Bank BCA <strong>Individual</strong> online bank account
+  synchronization. Also this module can import .csv file for Bank BCA <strong>Individual</strong> and <strong>Enterprise</strong> bank account.
+</p>
+
+<p>
+  It enables user to link bank journals to their KlikBCA bank
+  accounts for online synchronization of their bank statements to get bank feeds
+  directly in odoo.
+</p>
+
+<p>
+  This module can synchronize online only for Individual KlikBCA bank account. This module also can import .csv file for Individual & Enterprise BCA bank account.
+</p>
+
+<hr />
+<p>
+  <img
+    class="mt-8"
+    src="./images/bank-statement-detail.png"
+    style="height: 500px; width: auto"
+  />
+</p>
+<!-- END OF HEAD --><!-- FEATURE BLOCKS --><!-- TWO COLUMNS -->
+
+<h2>How to use:</h2>
+
+<p>1. Go to BCA bank journal configuration<strong>&nbsp;</strong></p>
+
+<p>
+    <img
+      src="./images/bank-dashboard.png"
+      style="height: 300px; width: auto"
+    />
+  </p>
+<p>Note: Previously you need to have a BCA bank journal</p>
+
+<p>Go to<strong> Accounting Overview Menu (Dashboard).&nbsp;</strong></p>
+
+<p>
+  On the BCA bank journal on top right menu
+  klik&nbsp;<strong>configuration</strong>.
+</p>
+<hr />
+
+
+<p>2. Configure Online Bank Statements</p>
+
+<p>
+    <img
+      src="./images/bank-dashboard-configuration.png"
+      style="height: 500px; width: auto"
+    />
+  </p>
+  
+<p>On <strong>Bank Feeds</strong> choose <strong>Online</strong></p>
+
+<p>
+  Then <strong>Online Bank Satements</strong>&nbsp;will be appear, on
+  <strong>Provider</strong> choose <strong>klikbca.com</strong>.
+</p>
+
+<p>Click <strong>Save</strong>.</p>
+
+
+<hr />
+<p>3. Configure USER ID and Internet Banking PIN</p>
+
+<p>
+    <img
+      src="./images/bank-dashboard-configuration-klikbca.png"
+      style="height: 380px; width: auto"
+    />
+  </p>
+  
+  <p>
+  After saved then On <strong>Online Bank Statement</strong> -
+  <strong>Provider</strong> click <strong>klikbca.com</strong>, then it will
+  appear klikbca configuration
+</p>
+
+<p>Type your&nbsp;<strong>User ID</strong></p>
+
+<p>Type your&nbsp;<strong>Internet Banking PIN</strong></p>
+
+<p>Then <strong>Save</strong></p>
+
+<p>
+  Configuration complete, then go back to the BCA bank journal
+</p>
+<hr />
+
+<hr />
+<p><strong>4.</strong>&nbsp;Import Bank Statement</p>
+
+<p>
+  <img
+    src="./images/bank-dashboard-configuration3.png"
+    style="height: 500px; width: auto"
+  />
+</p>
+
+<p>
+  Click <strong>Import Bank Statement</strong> to import .csv file of Individual & Enterprise Bank BCA Account and then create a bank statement.
+</p>
+
+<p>
+    <img
+      src="./images/bank-statement-import.png"
+      style="height: 300px; width: auto"
+    />
+</p>
+  
+<p>Get .csv file from your KlikBCA internet banking, click <strong>Upload your file</strong> to upload your .csv file, then click <strong>Import CSV File</strong> to proceed</p>
+
+
+
+<hr/>
+<hr/>
+
+
+<p><strong>5.</strong>&nbsp;Get klikbca bank statement.</p>
+
+<p>
+  <img
+    src="./images/bank-dashboard-configuration2.png"
+    style="height: 500px; width: auto"
+  />
+</p>
+
+<p>
+  Klik <strong>Pull Online Bank Statement </strong>to get online data and then
+  create a bank statement.
+</p>
+
+<p>
+    <img
+      src="./images/bank-statement-detail.png"
+      style="height: 500px; width: auto"
+    />
+  </p>  
+
+<p>
+  After success getting bank statement, you can post that bank statement then
+  reconcile it with bill or invoice payment transactions.
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <li>In order to use this button, you need to give access to login user with <strong>"Proweb Bank BCA Manager"</strong> or <strong>"Proweb Bank BCA User"</strong>. 
+    Go to <strong>Settings</strong> menu, <strong>Users & Companies</strong>, klik <strong>Users</strong>, scroll to bottom to select <strong>"Proweb Bank BCA Manager</strong> or <strong>Proweb Bank BCA User</strong> </li>
+  <li><strong> Show Raw Statements from Bank BCA </strong>button is for showing</li>
+  all raw statements in a table.
+</p>
+
+<hr />
+<p><strong>6.</strong>&nbsp;How to show all BCA Bank statements</p>
+
+<p>
+    <img
+      src="./images/bank-dashboard-name.png"
+      style="height: 300px; width: auto"
+    />
+</p>
+
+
+  <p><strong>On Accounting Overview (Dashboard)</strong> klik Bank BCA Journal Name</p>
+
+<p>
+    <img
+      src="./images/bank-statement.png"
+      style="height: 270px; width: auto"
+    />
+</p>
+  
+<p>Then it will appear all bank statements</p>
+
+<hr />
+<hr />
+
+<p><strong>Note:</strong></p>
+
+<ul>
+  <li>Maximum last 31 days transactions will be downloaded.</li>
+  <li>In order to maintain correct balance, please continuosly update with latest bank transaction within 31 days</li>
+  <li>KlikBCA transaction lane which date is PEND (Pending) will not be included into the new Odoo bank statement, that transaction lane will be included in the next bank statement when PEND date become a normal date</li>
+  <li>Always use the same way either online or import csv file. If you mix then some transaction line data may duplicate.</li>
+</ul>
+<!-- END OF TWO BLOCKS --><!-- FOOTER --><!-- Footer Section -->
+
+<p>You can reach us</p>
+
+<hr />
+<!-- Contact Cards -->
+<p>
+  <a
+    class="btn btn-block mb-2 deep_hover"
+    href="mailto:odoo@proweb.co.id"
+    style="
+      text-decoration: none;
+      background-color: #4d4d4d;
+      color: #fff;
+      border-radius: 4px;
+    "
+    target="_blank"
+    >odoo@proweb.co.id</a
+  >
+</p>
+
+<p>
+  <a
+    class="btn btn-block mb-2 deep_hover"
+    href="https://api.whatsapp.com/send?phone=628567811230"
+    style="
+      text-decoration: none;
+      background-color: #25d366;
+      color: #fff;
+      border-radius: 4px;
+    "
+    target="_blank"
+    >WhatsApp</a
+  >
+</p>
+
+<p>
+  <a
+    class="btn btn-block mb-2 deep_hover"
+    href="https://www.proweb.co.id"
+    style="
+      text-decoration: none;
+      background-color: #4d004d;
+      color: #fff;
+      border-radius: 4px;
+    "
+    target="_blank"
+    >www.proweb.co.id</a
+  >
+</p>
+<!-- End of Contact Cards --><!-- Footer --><!-- Logo -->
+
+<p>
+  <img
+    src="https://www.proweb.co.id/wp-content/uploads/2018/03/logo-proweb-00.png"
+    style="height: auto; width: 200px"
+  />
+</p>
+<!-- End of Logo -->
+
+<hr />
+<!-- End of Footer Section --><!-- END OF FOOTER -->
